@@ -9,23 +9,15 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'preservim/nerdtree'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'hashivim/vim-terraform'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'fatih/vim-go'
-Plugin 'prettier/vim-prettier'
-Plugin 'eslint/eslint'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'stephpy/vim-yaml'
+Plugin 'elzr/vim-json'
+Bundle 'vim-ruby/vim-ruby'
 
 call vundle#end()
 filetype plugin indent on
-
-" Custom mappings for plugins
-map <C-o> :NERDTreeToggle<CR>
 
 " Turn on syntax highlighting
 syntax on
@@ -36,12 +28,6 @@ set ruler
 " Show current line number and relative numbers
 set number
 set relativenumber
-
-" Set 2 spaces as default
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
 
 " Set utf8 as standard encoding
 set encoding=utf-8
@@ -59,11 +45,19 @@ set autoread
 " and automatically-inserted indentation
 set backspace=indent,eol,start
 
-" Show specific characters
-set list
-set listchars=tab:\ \ ,eol:$
+" Use spaces instead of tabs
+set expandtab
 
-" Set a textwidth and text wrapping
+" Set default indent to 2 spaces
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+
+" Always show the end-of-line character
+set list
+set listchars=tab:▶·,eol:$
+
+" Set a text width and text wrapping
 set wrap
 
 " Highlights matching parentheses, brackets, etc.
@@ -72,8 +66,9 @@ set showmatch
 " Better color scheme
 colo desert
 
-" Spell check
+" Spell checking with an additional list of OK words
 set spell
-highlight clear SpellBad
-highlight clear SpellCap
-highlight SpellBad cterm=underline,bold ctermfg=red
+set spellfile=~/.vim/spell/en.utf-8.add
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=red
+hi clear SpellCap
