@@ -26,6 +26,7 @@ brew "redis"
 brew "go"
 brew "ruby-build"
 brew "tree-sitter-cli"
+cask "font-jetbrains-mono-nerd-font"
 
 # Optional but very useful with Neovim / terminal workflows
 brew "lazygit"
