@@ -10,6 +10,7 @@ brew "pnpm"
 brew "nx"
 brew "pyenv"
 brew "rbenv"
+brew "uv"
 
 # Useful build/developer basics
 brew "ripgrep"
